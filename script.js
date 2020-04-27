@@ -5,56 +5,44 @@ var timeEl = document.getElementById("time");
 var secondsLeft = 60;
 
 function setTimer() {
-    var timerInterval = setInterval(function() {
-        secondsLeft--;
-        timeEl.textContent = secondsLeft;
+  var timerInterval = setInterval(function () {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft;
 
-        if(secondsLeft === 0) {
-            clearInterval(timerInterval);
-            
-        }
-    }, 1000);
+    if (secondsLeft === 0) {
+      clearInterval(timerInterval);
+    }
+  }, 1000);
 }
 setTimer();
 //================Intro page to code quiz======================//
 var startButton = document.getElementById("start-btn");
+var introText = document.getElementById("intro");
 var questionContainerEl = document.getElementById("question-container");
 var questionEl = document.getElementById("question");
 var answerButtonsEl = document.getElementById("answer-buttons");
 
-var shuffledQuestions, currentQuestionIndex
+var shuffledQuestions, currentQuestionIndex;
 
 startButton.addEventListener("click", startGame);
 
 function startGame() {
-    console.log("started");
-    startButton.classList.add("hide");
-    shuffledQuestions = questions.sort(() => Math.random() - .5);
-    currentQuestionIndex = 0
-    questionContainerEl.classList.remove("hide");
-    setNextQuestion()    
-};
-
-function setNextQuestion() {
-    showQuestion(shuffledQuestions[currentQuestionIndex])
-};
-
-function showQuestion(question) {
-    questionEl.innerText = question.question
+  startButton.classList.add("hide");
+  introText.classList.add("hide");
 }
 
-function selectAnswer() {
+function setNextQuestion() {}
 
-};
+function selectAnswer() {}
 
 var questions = [
-    {
-        question: "commonly used data types DO NOT include:",
-        answers: [
-            {text: "string", correct: false},
-            {text: "booleans", correct: false},
-            {text: "alerts", correct: true},
-            {text: "numbers", correct: false},
-        ]
-    }
-]
+  {
+    question: "commonly used data types DO NOT include:",
+    answers: [
+      { text: "string", correct: false },
+      { text: "booleans", correct: false },
+      { text: "alerts", correct: true },
+      { text: "numbers", correct: false },
+    ],
+  },
+];

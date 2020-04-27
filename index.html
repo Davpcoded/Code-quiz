@@ -1,37 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
-</head>
-<body>
-    <h1 id="time"></h1>
-    <div class="container">
-        <div id="question-container" class="hide">
-            <div id="question">Question</div>
-            <div id="answer-buttons" class="btn-grid">
-                <button class="btn">Answer1</button>
-                <button class="btn">Answer2</button>
-                <button class="btn">Answer3</button>
-                <button class="btn">Answer4</button>
-            </div>
+  </head>
+  <body>
+    <!-- Scoreboard and Timer Section -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-auto time-col">
+          <h1 id="time"></h1>
         </div>
-        <div id="quiz-intro" class="intro-header">
-            <h1>Code Quiz Challenge</h1>
+        <div class="col-md-auto">
+          <h1 id="Scoreboard">Scoreboard</h1>
         </div>
-        <div class="quiz-text">
-            <p id="intro-txt">Try to answer the following code related questions
-                within the time limit. Keep in mind that incorrect answers will
-                 penalize your scoretime by ten seconds
-            </p>
-        </div>
-        <div class="controls">
-            <button id="start-btn" class="start-btn btn">Start Quiz</button>
-            <button id="submit-btn" class="submit-btn btn hide">Submit</button>
-        </div>
+      </div>
     </div>
-<script src="./script.js"></script>    
-</body>
+    <!-- Quiz intro Header -->
+    <section>
+      <div id="quiz-wrapper" class="container-fluid">
+        <div class="row quiz-card">
+          <div class="col quiz-card">
+            <h1 id="question" class="quiz-question-wrapper">
+              Code Quiz Challenge
+            </h1>
+            <!-- quiz text  -->
+            <div class="quiz-text-wrapper">
+              <p id="intro">
+                Try to answer the following code related questions within the
+                time limit. Keep in mind that incorrect answers will penalize
+                your scoretime by ten seconds
+              </p>
+            </div>
+            <!-- Controls -->
+            <div class="controls">
+              <button id="start-btn" class="start-btn btn">Start Quiz</button>
+              <button id="start-btn" class="start-btn btn hide">Next</button>
+              <button id="submit-btn" class="submit-btn btn hide">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <h1 id="time"></h1>
+    <div class="container">
+      <div id="question-container" class="hide">
+        <div id="question">Question</div>
+        <div id="answer-buttons" class="btn-grid">
+          <button class="btn">Answer1</button>
+          <button class="btn">Answer2</button>
+          <button class="btn">Answer3</button>
+          <button class="btn">Answer4</button>
+        </div>
+      </div>
+      <div id="quiz-intro" class="intro-header">
+        <h1>Code Quiz Challenge</h1>
+      </div>
+      <div class="quiz-text">
+        <p id="intro-txt">
+          Try to answer the following code related questions within the time
+          limit. Keep in mind that incorrect answers will penalize your
+          scoretime by ten seconds
+        </p>
+      </div>
+      <div class="controls">
+        <button id="start-btn" class="start-btn btn">Start Quiz</button>
+        <button id="submit-btn" class="submit-btn btn hide">Submit</button>
+      </div>
+    </div> -->
+    <script src="./script.js"></script>
+  </body>
 </html>
