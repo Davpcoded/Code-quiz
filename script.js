@@ -16,19 +16,25 @@ function setTimer() {
 }
 setTimer();
 //================Intro page to code quiz======================//
-var startButton = document.getElementById("start-btn");
-var introText = document.getElementById("intro");
-var questionContainerEl = document.getElementById("question-container");
-var questionEl = document.getElementById("question");
-var answerButtonsEl = document.getElementById("answer-buttons");
+const startButton = document.getElementById("start-btn");
+const introText = document.getElementById("intro-text");
+const answerButtonEl = document.querySelector(".answer-btn");
+const questionEl = document.getElementById("question");
+// const answerButtonsEl = document.getElementById("answer-buttons");
 
-var shuffledQuestions, currentQuestionIndex;
+let shuffledQuestions, currentQuestionIndex;
 
 startButton.addEventListener("click", startGame);
 
 function startGame() {
   startButton.classList.add("hide");
   introText.classList.add("hide");
+  answerButtonEl.classList.remove("hide");
+  shuffledQuestions = questions.sort(function () {
+    return Math.random() - 0.5;
+  });
+  currentQuestionIndex = 0;
+  setNextQuestion();
 }
 
 function setNextQuestion() {}
