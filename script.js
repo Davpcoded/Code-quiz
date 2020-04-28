@@ -15,19 +15,24 @@ function setTimer() {
   }, 1000);
 }
 setTimer();
-//================Intro page to code quiz======================//
+//================ Quiz ======================//
 const startButton = document.getElementById("start-btn");
+const nextButton = document.getElementById("next-btn");
 const introText = document.getElementById("intro-text");
 const answerButtonEl = document.querySelector(".answer-btn");
 const questionEl = document.getElementById("question");
-// const answerButtonsEl = document.getElementById("answer-buttons");
 
 let shuffledQuestions, currentQuestionIndex;
 
 startButton.addEventListener("click", startGame);
+nextButton.addEventListener("click", () => {
+  currentQuestionIndex++;
+  setNextQuestion();
+});
 
 function startGame() {
   startButton.classList.add("hide");
+  nextButton.classList.remove("hide");
   introText.classList.add("hide");
   answerButtonEl.classList.remove("hide");
   shuffledQuestions = questions.sort(function () {
@@ -37,9 +42,35 @@ function startGame() {
   setNextQuestion();
 }
 
-function setNextQuestion() {}
+function setNextQuestion() {
+  resetState();
+  showQuestion(shuffledQuestions[currentQuestionIndex]);
+}
 
-function selectAnswer() {}
+function showQuestion(question) {
+  questionEl.innerText = question.question;
+  question.answers.forEach((answer) => {
+    const button = document.createElement("button");
+    button.innerText = answer.text;
+    button.classList.add("btn");
+    if (answer.correct) {
+      button.dataset.correct = answer.correct;
+    }
+    button.addEventListener("click", selectAnswer);
+    answerButtonEl.appendChild(button);
+  });
+}
+
+function resetState() {
+  while (answerButtonEl.firstChild) {
+    answerButtonEl.removeChild(answerButtonEl.firstChild);
+  }
+}
+
+function selectAnswer(e) {
+  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+  }
+}
 
 var questions = [
   {
@@ -49,6 +80,42 @@ var questions = [
       { text: "booleans", correct: false },
       { text: "alerts", correct: true },
       { text: "numbers", correct: false },
+    ],
+  },
+  {
+    question: "hello hello",
+    answers: [
+      { text: "sss", correct: false },
+      { text: "sssleans", correct: false },
+      { text: "sssrts", correct: true },
+      { text: "sssbers", correct: false },
+    ],
+  },
+  {
+    question: "hello hello",
+    answers: [
+      { text: "sss", correct: false },
+      { text: "sssleans", correct: false },
+      { text: "sssrts", correct: true },
+      { text: "sssbers", correct: false },
+    ],
+  },
+  {
+    question: "hello hello",
+    answers: [
+      { text: "sss", correct: false },
+      { text: "sssleans", correct: false },
+      { text: "sssrts", correct: true },
+      { text: "sssbers", correct: false },
+    ],
+  },
+  {
+    question: "hello hello",
+    answers: [
+      { text: "sss", correct: false },
+      { text: "sssleans", correct: false },
+      { text: "sssrts", correct: true },
+      { text: "sssbers", correct: false },
     ],
   },
 ];
