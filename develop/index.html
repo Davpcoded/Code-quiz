@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./style.css" />
+        <title>Document</title>
+      </head>
+      <body>
+        <!-- Scoreboard and Timer Section -->
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-auto time-col">
+              <h1 id="time"></h1>
+            </div>
+            <div class="col-md-auto">
+              <h1 id="Scoreboard">Scoreboard:<span id="score"></span></h1>
+            </div>
+          </div>
+        </div>
+        <!-- Quiz intro Header -->
+        <section>
+          <div id="quiz-wrapper" class="container-fluid">
+            <div class="row quiz-card">
+              <div class="col quiz-card">
+                <h1 id="question" class="quiz-question-wrapper">
+                  Code Quiz Challenge
+                </h1>
+                <!-- quiz text  -->
+                <div class="quiz-text-wrapper">
+                  <p id="intro-text">
+                    Try to answer the following code related questions within
+                    the time limit. Keep in mind that incorrect answers will
+                    penalize your scoretime by ten seconds
+                  </p>
+                </div>
+                <!-- Answer buttons -->
+                <div id="answerBtnDiv">
+                  <!-- <div id="" class="answer-btn btn-grid hide">
+                    <button id="answer" class="btn">
+                      Answer1
+                    </button>
+                    <button class="btn">
+                      Answer2
+                    </button>
+                    <button class="btn">
+                      Answer3
+                    </button>
+                    <button class="btn">
+                      Answer4
+                    </button>
+                  </div> -->
+                </div>
+                <!-- Controls -->
+                <div class="controls">
+                  <button id="start-btn" class="start-btn btn">
+                    Start Quiz
+                  </button>
+                  <button id="next-btn" class="next-btn btn hide">Next</button>
+                  <button id="submit-btn" class="submit-btn btn hide">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <script src="./script.js"></script>
+      </body>
+    </html>
+  </body>
+</html>
