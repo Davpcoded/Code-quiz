@@ -32,11 +32,13 @@ function startQuiz() {
 function setQuestion() {
   for (var i = 0; i < myQuestions.length; i++) {
     let question = myQuestions[i].question;
-    let answer = myQuestions[i].answers[0];
+    let answer = myQuestions[i].answers[0].text;
     questionElement.innerText = question;
-    const btn = document.createElement("button");
-    btn.innerText = answer;
-    answerBtnDiv.appendChild(btn);
+
+    const answerBtn = document.createElement("button");
+    answerBtn.setAttribute("class", "btn");
+    answerBtn.innerText = answer;
+    answerBtnDiv.appendChild(answerBtn);
 
     return;
   }
