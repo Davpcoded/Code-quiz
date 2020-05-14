@@ -19,7 +19,7 @@ const startQuizBtn = document.getElementById("start-btn");
 const questionElement = document.getElementById("question");
 const introTextElement = document.getElementById("intro-text");
 const answerBtnDiv = document.getElementById("answerBtnDiv");
-
+//==================Start Quiz=================//
 startQuizBtn.addEventListener("click", startQuiz);
 
 function startQuiz() {
@@ -32,19 +32,34 @@ function startQuiz() {
 function setQuestion() {
   for (var i = 0; i < myQuestions.length; i++) {
     let question = myQuestions[i].question;
-    let answer = myQuestions[i].answers[0].text;
     questionElement.innerText = question;
 
-    const answerBtn = document.createElement("button");
-    answerBtn.setAttribute("class", "btn");
-    answerBtn.innerText = answer;
-    answerBtnDiv.appendChild(answerBtn);
+    myQuestions[i].answers.forEach(function (answer, j) {
+      const answerBtn = document.createElement("button");
+      answerBtn.setAttribute("class", "btn");
+      answerBtn.setAttribute("id", "" + j);
+      answerBtn.innerText = answer.text;
+      answerBtnDiv.appendChild(answerBtn);
+      answerBtn.addEventListener("click", checkAnswer);
+    });
 
     return;
   }
 }
 
-function questionChecker() {}
+function checkAnswer(e) {
+  e.preventDefault();
+  for (var i = 0; i < myQuestions.length; i++)
+    myQuestions[i].answers.forEach(function (answer) {
+      console.log(answer);
+      /*  if (answer.correct === true) {
+        alert("Correct!");
+        return false;
+      } else {
+        alert("incorrect");
+      } */
+    });
+}
 
 function setScoreBoard() {}
 
