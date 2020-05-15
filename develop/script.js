@@ -46,19 +46,40 @@ function setQuestion() {
     return;
   }
 }
-
-function checkAnswer(e) {
-  e.preventDefault();
-  for (var i = 0; i < myQuestions.length; i++)
-    myQuestions[i].answers.forEach(function (answer) {
-      console.log(answer);
-      /*  if (answer.correct === true) {
-        alert("Correct!");
-        return false;
-      } else {
-        alert("incorrect");
-      } */
-    });
+//==================Check Answers======================//
+function checkAnswer() {
+  document.getElementById("0").onclick = function () {
+    let status = myQuestions[0].answers[0].correct;
+    if (status === true) {
+      alert("Correct!");
+    } else {
+      alert("incorrect");
+    }
+  };
+  document.getElementById("1").onclick = function () {
+    let status = myQuestions[0].answers[1].correct;
+    if (status === true) {
+      alert("Correct!");
+    } else {
+      alert("incorrect");
+    }
+  };
+  document.getElementById("2").onclick = function () {
+    let status = myQuestions[0].answers[2].correct;
+    if (status === true) {
+      alert("Correct!");
+    } else {
+      alert("incorrect");
+    }
+  };
+  document.getElementById("3").onclick = function () {
+    let status = myQuestions[0].answers[3].correct;
+    if (status === true) {
+      alert("Correct!");
+    } else {
+      alert("incorrect");
+    }
+  };
 }
 
 function setScoreBoard() {}
