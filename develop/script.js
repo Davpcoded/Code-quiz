@@ -19,7 +19,10 @@ const startQuizBtn = document.getElementById("start-btn");
 const questionElement = document.getElementById("question");
 const introTextElement = document.getElementById("intro-text");
 const answerBtnDiv = document.getElementById("answerBtnDiv");
+const scoreElement = document.getElementById("score");
 //==================Start Quiz=================//
+let score = 0;
+scoreElement.innerHTML = score;
 startQuizBtn.addEventListener("click", startQuiz);
 
 function startQuiz() {
@@ -51,32 +54,52 @@ function checkAnswer() {
   document.getElementById("0").onclick = function () {
     let status = myQuestions[0].answers[0].correct;
     if (status === true) {
+      score += 10;
+      scoreElement.innerHTML = score;
       alert("Correct!");
+      console.log(score);
     } else {
+      secondsLeft -= 10;
+      timeEl.textContent = secondsLeft;
       alert("incorrect");
     }
   };
   document.getElementById("1").onclick = function () {
     let status = myQuestions[0].answers[1].correct;
     if (status === true) {
+      score += 10;
+      scoreElement.innerHTML = score;
       alert("Correct!");
+      console.log(score);
     } else {
+      secondsLeft -= 10;
+      timeEl.textContent = secondsLeft;
       alert("incorrect");
     }
   };
   document.getElementById("2").onclick = function () {
     let status = myQuestions[0].answers[2].correct;
     if (status === true) {
+      score += 10;
+      scoreElement.innerHTML = score;
       alert("Correct!");
+      console.log(score);
     } else {
+      secondsLeft -= 10;
+      timeEl.textContent = secondsLeft;
       alert("incorrect");
     }
   };
   document.getElementById("3").onclick = function () {
     let status = myQuestions[0].answers[3].correct;
     if (status === true) {
+      score += 10;
+      scoreElement.innerHTML = score;
       alert("Correct!");
+      console.log(score);
     } else {
+      secondsLeft -= 10;
+      timeEl.textContent = secondsLeft;
       alert("incorrect");
     }
   };
