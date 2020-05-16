@@ -25,34 +25,35 @@ let score = 0;
 scoreElement.innerHTML = score;
 startQuizBtn.addEventListener("click", startQuiz);
 
+let currentQuestionIndex;
+
 function startQuiz() {
   startQuizBtn.setAttribute("class", "hide");
   introTextElement.setAttribute("class", "hide");
-  setQuestion();
+  currentQuestionIndex = 0;
+  setQuestion(currentQuestionIndex);
   setTimer();
 }
 
 function setQuestion() {
-  for (var i = 0; i < myQuestions.length; i++) {
-    let question = myQuestions[i].question;
-    questionElement.innerText = question;
+  let question = myQuestions[currentQuestionIndex];
+  questionElement.innerText = question.question;
 
-    myQuestions[i].answers.forEach(function (answer, j) {
-      const answerBtn = document.createElement("button");
-      answerBtn.setAttribute("class", "btn");
-      answerBtn.setAttribute("id", "" + j);
-      answerBtn.innerText = answer.text;
-      answerBtnDiv.appendChild(answerBtn);
-      answerBtn.addEventListener("click", checkAnswer);
-    });
+  myQuestions[currentQuestionIndex].answers.forEach(function (answer, j) {
+    const answerBtn = document.createElement("button");
+    answerBtn.setAttribute("class", "btn");
+    answerBtn.setAttribute("id", "" + j);
+    answerBtn.innerText = answer.text;
+    answerBtnDiv.appendChild(answerBtn);
+    answerBtn.addEventListener("click", checkAnswer);
+  });
 
-    return;
-  }
+  return;
 }
 //==================Check Answers======================//
 function checkAnswer() {
   document.getElementById("0").onclick = function () {
-    let status = myQuestions[0].answers[0].correct;
+    let status = myQuestions[currentQuestionIndex].answers[0].correct;
     if (status === true) {
       score += 10;
       scoreElement.innerHTML = score;
@@ -63,9 +64,10 @@ function checkAnswer() {
       timeEl.textContent = secondsLeft;
       alert("incorrect");
     }
+    setNextQuestion();
   };
   document.getElementById("1").onclick = function () {
-    let status = myQuestions[0].answers[1].correct;
+    let status = myQuestions[currentQuestionIndex].answers[1].correct;
     if (status === true) {
       score += 10;
       scoreElement.innerHTML = score;
@@ -76,9 +78,10 @@ function checkAnswer() {
       timeEl.textContent = secondsLeft;
       alert("incorrect");
     }
+    setNextQuestion();
   };
   document.getElementById("2").onclick = function () {
-    let status = myQuestions[0].answers[2].correct;
+    let status = myQuestions[currentQuestionIndex].answers[2].correct;
     if (status === true) {
       score += 10;
       scoreElement.innerHTML = score;
@@ -89,9 +92,10 @@ function checkAnswer() {
       timeEl.textContent = secondsLeft;
       alert("incorrect");
     }
+    setNextQuestion();
   };
   document.getElementById("3").onclick = function () {
-    let status = myQuestions[0].answers[3].correct;
+    let status = myQuestions[currentQuestionIndex].answers[3].correct;
     if (status === true) {
       score += 10;
       scoreElement.innerHTML = score;
@@ -102,10 +106,31 @@ function checkAnswer() {
       timeEl.textContent = secondsLeft;
       alert("incorrect");
     }
+    setNextQuestion();
   };
 }
 
-function setScoreBoard() {}
+function setNextQuestion() {
+  resetState();
+  currentQuestionIndex++;
+  console.log(currentQuestionIndex);
+  if (currentQuestionIndex === 5) {
+    setScoreBoard();
+  } else {
+    setQuestion(myQuestions[currentQuestionIndex]);
+  }
+}
+
+function resetState() {
+  questionElement.innerHTML = "";
+  while (answerBtnDiv.firstChild) {
+    answerBtnDiv.removeChild(answerBtnDiv.firstChild);
+  }
+}
+
+function setScoreBoard() {
+  resetState();
+}
 
 //=============== questions ================//
 const myQuestions = [
@@ -123,8 +148,8 @@ const myQuestions = [
       "String values must be enclosed within ____ when being assigned to variables.",
     answers: [
       { text: "commas", correct: false },
-      { text: "curly brackets", correct: true },
-      { text: "quotes", correct: false },
+      { text: "curly brackets", correct: false },
+      { text: "quotes", correct: true },
       { text: "parentheses", correct: false },
     ],
   },
@@ -141,10 +166,10 @@ const myQuestions = [
   {
     question: "Arrays is javaScript can be used to store",
     answers: [
-      { text: "numbers and strings", correct: true },
-      { text: "other arrays", correct: true },
+      { text: "numbers and strings", correct: false },
+      { text: "other arrays", correct: false },
       { text: "booleans", correct: false },
-      { text: "all of the above", correct: false },
+      { text: "all of the above", correct: true },
     ],
   },
   {
