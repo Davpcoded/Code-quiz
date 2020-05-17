@@ -150,7 +150,8 @@ function setScoreBoard() {
 
 function addUser() {
   const userName = document.getElementById("inputElement").value;
-  document.getElementById("intro-text").innerText = userName;
+  document.getElementById("intro-text").innerText =
+    userName + " " + score + "points";
 }
 
 //=============== questions ================//
