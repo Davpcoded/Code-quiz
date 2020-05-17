@@ -29,9 +29,12 @@ startQuizBtn.addEventListener("click", startQuiz);
 let currentQuestionIndex;
 
 function startQuiz() {
+  resetState();
   startQuizBtn.setAttribute("class", "hide");
   introTextElement.setAttribute("class", "hide");
   currentQuestionIndex = 0;
+  score = 0;
+  secondsLeft = 60;
   setQuestion(currentQuestionIndex);
   setTimer();
 }
@@ -134,24 +137,40 @@ function setScoreBoard() {
   questionElement.innerHTML = "SCOREBOARD:";
   let inputElement = document.createElement("input");
   let submitBtn = document.createElement("button");
+  let restartQuizBtn = document.createElement("button");
 
   submitBtn.setAttribute("class", "submit-btn");
   submitBtn.addEventListener("click", addUser);
   submitBtn.innerText = "Submit";
 
+  restartQuizBtn.innerText = "Restart";
+  restartQuizBtn.addEventListener("click", startQuiz);
+  restartQuizBtn.setAttribute("class", "restart-btn");
+
   inputElement.setAttribute("class", "quiz-text-wrapper");
   inputElement.setAttribute("id", "inputElement");
   introTextElement.setAttribute("class", "");
-  introTextElement.innerText = "";
+  introTextElement.innerText =
+    localStorage.getItem("userName") +
+    " " +
+    localStorage.getItem("userScore") +
+    " " +
+    "Points";
 
   answerBtnDiv.appendChild(inputElement);
   answerBtnDiv.appendChild(submitBtn);
+  answerBtnDiv.appendChild(restartQuizBtn);
 }
 
 function addUser() {
   const userName = document.getElementById("inputElement").value;
   document.getElementById("intro-text").innerText =
-    userName + " " + score + "points";
+    userName + " " + score + " " + "points";
+
+  if (typeof Storage !== "undefined") {
+    localStorage.setItem("userName", userName);
+    localStorage.setItem("userScore", score);
+  }
 }
 
 //=============== questions ================//
