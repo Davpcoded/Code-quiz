@@ -30,10 +30,12 @@ let currentQuestionIndex;
 
 function startQuiz() {
   resetState();
+  textAreaElement.innerText = "";
   startQuizBtn.setAttribute("class", "hide");
   introTextElement.setAttribute("class", "hide");
   currentQuestionIndex = 0;
   score = 0;
+  scoreElement.innerHTML = score;
   secondsLeft = 60;
   setQuestion(currentQuestionIndex);
   setTimer();
@@ -134,6 +136,16 @@ function resetState() {
 
 function setScoreBoard() {
   resetState();
+  let newUser =
+    localStorage.getItem("userName") +
+    " " +
+    localStorage.getItem("userScore") +
+    " " +
+    "Points";
+  let newUserElement = document.createElement("div");
+  newUserElement.innerText = newUser;
+  textAreaElement.appendChild(newUserElement);
+
   questionElement.innerHTML = "SCOREBOARD:";
   let inputElement = document.createElement("input");
   let submitBtn = document.createElement("button");
@@ -149,13 +161,6 @@ function setScoreBoard() {
 
   inputElement.setAttribute("class", "quiz-text-wrapper");
   inputElement.setAttribute("id", "inputElement");
-  introTextElement.setAttribute("class", "");
-  introTextElement.innerText =
-    localStorage.getItem("userName") +
-    " " +
-    localStorage.getItem("userScore") +
-    " " +
-    "Points";
 
   answerBtnDiv.appendChild(inputElement);
   answerBtnDiv.appendChild(submitBtn);
@@ -164,9 +169,10 @@ function setScoreBoard() {
 
 function addUser() {
   const userName = document.getElementById("inputElement").value;
-  document.getElementById("intro-text").innerText =
-    userName + " " + score + " " + "points";
-
+  let newUserElement = document.createElement("div");
+  newUserElement.setAttribute("style", "margin-left: 10px");
+  newUserElement.innerText = userName + " " + score;
+  textAreaElement.appendChild(newUserElement);
   if (typeof Storage !== "undefined") {
     localStorage.setItem("userName", userName);
     localStorage.setItem("userScore", score);
