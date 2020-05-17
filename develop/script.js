@@ -171,7 +171,7 @@ function addUser() {
   const userName = document.getElementById("inputElement").value;
   let newUserElement = document.createElement("div");
   newUserElement.setAttribute("style", "margin-left: 10px");
-  newUserElement.innerText = userName + " " + score;
+  newUserElement.innerText = userName + " " + score + "points";
   textAreaElement.appendChild(newUserElement);
   if (typeof Storage !== "undefined") {
     localStorage.setItem("userName", userName);
