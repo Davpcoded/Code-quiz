@@ -136,13 +136,21 @@ function setScoreBoard() {
   let submitBtn = document.createElement("button");
 
   submitBtn.setAttribute("class", "submit-btn");
-  submitBtn.setAttribute("type", "submit");
+  submitBtn.addEventListener("click", addUser);
   submitBtn.innerText = "Submit";
+
   inputElement.setAttribute("class", "quiz-text-wrapper");
+  inputElement.setAttribute("id", "inputElement");
   introTextElement.setAttribute("class", "");
+  introTextElement.innerText = "";
 
   answerBtnDiv.appendChild(inputElement);
   answerBtnDiv.appendChild(submitBtn);
+}
+
+function addUser() {
+  const userName = document.getElementById("inputElement").value;
+  document.getElementById("intro-text").innerText = userName;
 }
 
 //=============== questions ================//
