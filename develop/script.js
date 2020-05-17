@@ -18,6 +18,7 @@ function setTimer() {
 const startQuizBtn = document.getElementById("start-btn");
 const questionElement = document.getElementById("question");
 const introTextElement = document.getElementById("intro-text");
+const textAreaElement = document.getElementById("quiz-text-wrapper");
 const answerBtnDiv = document.getElementById("answerBtnDiv");
 const scoreElement = document.getElementById("score");
 //==================Start Quiz=================//
@@ -130,6 +131,18 @@ function resetState() {
 
 function setScoreBoard() {
   resetState();
+  questionElement.innerHTML = "SCOREBOARD:";
+  let inputElement = document.createElement("input");
+  let submitBtn = document.createElement("button");
+
+  submitBtn.setAttribute("class", "submit-btn");
+  submitBtn.setAttribute("type", "submit");
+  submitBtn.innerText = "Submit";
+  inputElement.setAttribute("class", "quiz-text-wrapper");
+  introTextElement.setAttribute("class", "");
+
+  answerBtnDiv.appendChild(inputElement);
+  answerBtnDiv.appendChild(submitBtn);
 }
 
 //=============== questions ================//

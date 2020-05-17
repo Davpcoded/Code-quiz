@@ -70,6 +70,21 @@ body {
   border-color: #000000;
 }
 
+.submit-btn {
+  background-color: #500168;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #ffffff;
+  outline: none;
+  width: 100px;
+  display: inherit;
+  margin: auto;
+}
+
+.submit-btn:hover {
+  border-color: #000000;
+}
+
 #quiz-intro {
   height: 100px;
   max-height: 80%;
