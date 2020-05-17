@@ -2,7 +2,7 @@
 
 - link to the app https://davpcoded.github.io/Code-quiz/
 
-![image](Assets\Images\Code-Quiz.gif)
+![image](https://github.com/Davpcoded/Code-quiz/blob/master/Assets/Images/Code-Quiz.gif)
 
 # Github
 
