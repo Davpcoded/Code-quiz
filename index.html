@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <title>Document</title>
+    <title>Code Quiz</title>
   </head>
   <body>
     <!-- Scoreboard and Timer Section -->
@@ -14,7 +14,7 @@
           <h1 id="time"></h1>
         </div>
         <div class="col-md-auto">
-          <h1 id="Scoreboard">Scoreboard:<span id="score"></span></h1>
+          <h1 id="Scoreboard">Score:<span id="score"></span></h1>
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@
               Code Quiz Challenge
             </h1>
             <!-- quiz text  -->
-            <div class="quiz-text-wrapper">
+            <div id="quiz-text-wrapper" class="quiz-text-wrapper">
               <p id="intro-text">
                 Try to answer the following code related questions within the
                 time limit. Keep in mind that incorrect answers will penalize
@@ -42,9 +42,6 @@
                 Start Quiz
               </button>
               <button id="next-btn" class="next-btn btn hide">Next</button>
-              <button id="submit-btn" class="submit-btn btn hide">
-                Submit
-              </button>
             </div>
           </div>
         </div>
