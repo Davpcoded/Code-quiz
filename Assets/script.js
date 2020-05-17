@@ -154,7 +154,6 @@ function setScoreBoard() {
   submitBtn.setAttribute("class", "submit-btn");
   submitBtn.addEventListener("click", addUser);
   submitBtn.innerText = "Submit";
-
   restartQuizBtn.innerText = "Restart";
   restartQuizBtn.addEventListener("click", startQuiz);
   restartQuizBtn.setAttribute("class", "restart-btn");
